@@ -32,7 +32,13 @@ public:
 		}
 		return true;
 	}
-
+	
+	bool Update() {
+		for (auto& In : Task) {
+			std::get<1>(In)->Update();
+		}
+		return true;
+	}
 
 	bool Push(SharedItem In,Priority P) {
 		Task.push_back({ P,In });
